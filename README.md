@@ -19,7 +19,7 @@ cd k8s-cluster
 vagrant up
 ```
 
-## How to check cluster is running?
+## How to check if the cluster is running?
 
 You can access to each Virtual Machine (node in K8s terminology) with the command:
 
