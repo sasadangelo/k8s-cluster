@@ -10,8 +10,8 @@
     #sudo chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
     # install Calico pod network addon
     export KUBECONFIG=/etc/kubernetes/admin.conf
-    sudo kubectl apply -f https://raw.githubusercontent.com/ecomm-integration-ballerina/kubernetes-cluster/master/calico/rbac-kdd.yaml
-    sudo kubectl apply -f https://raw.githubusercontent.com/ecomm-integration-ballerina/kubernetes-cluster/master/calico/calico.yaml
+    sudo kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/rbac-kdd.yaml
+    sudo kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/calico.yaml
     #kubeadm token create --print-join-command 2>/dev/null | sudo tee -a /etc/kubeadm_join_cmd.sh
     #sudo chmod +x /etc/kubeadm_join_cmd.sh
     # required for setting up password less ssh between guest VMs
