@@ -27,6 +27,12 @@ You can access to each Virtual Machine (node in K8s terminology) with the comman
 vagrat ssh <node name>
 ```
 
-where <node name> could be ```k8s-head```, ```k8s-node-1```, and ```k8s-node-2```. To work with the cluster you can access to the master node and use kubectl commands as vagrant user.
+where <node name> could be ```k8s-head```, ```k8s-node-1```, and ```k8s-node-2```. To check if the cluster is running, and for all the administration tasks, you can access to the master node and use kubectl commands as vagrant user. The following command shows you the status of all the three nodes.
+ 
+```
+kubectl get nodes
+```
+
+You should see all the nodes in Ready status.
 
 
