@@ -50,9 +50,9 @@ Vagrant.configure("2") do |config|
             config.vm.provision "shell", path: "configure_box.sh"
 
             if opts[:type] == "master"
-                config.vm.provision "shell", path: "configure_master.sh"
+                config.vm.provision "shell", path: "configure_master.sh", privileged: true
             else
-                config.vm.provision "shell", path: "configure_node.sh"
+                config.vm.provision "shell", path: "configure_node.sh", privileged: true
             end
         end
     end
