@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
             config.vm.provider "virtualbox" do |v|
 
                 v.name = opts[:name]
-            	 v.customize ["modifyvm", :id, "--groups", "/Ballerina Development"]
+            	v.customize ["modifyvm", :id, "--groups", "/K8s Development"]
                 v.customize ["modifyvm", :id, "--memory", opts[:mem]]
                 v.customize ["modifyvm", :id, "--cpus", opts[:cpu]]
 
