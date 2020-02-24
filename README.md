@@ -19,6 +19,35 @@ cd k8s-cluster
 vagrant up
 ```
 
+## How to change the configuration
+
+By default, the cluster is created with three nodes, one master (called ```k8s-head```) and two workers (called ```k8s-node-1``` and ```k8s-node-2```). You can change the number of servers, their names, and other configuration aspects editing the file servers.yaml. Here an example of the default file.
+
+```
+---
+- name: k8s-head
+  type: master
+  box: ubuntu/xenial64
+  box_version: 20180831.0.0
+  eth1: 192.168.205.10
+  mem: 2048
+  cpu: 2
+- name: k8s-node-1
+  type: node
+  box: ubuntu/xenial64
+  box_version: 20180831.0.0
+  eth1: 192.168.205.11
+  mem: 2048
+  cpu: 2
+- name: k8s-node-2
+  type: node
+  box: ubuntu/xenial64
+  box_version: 20180831.0.0
+  eth1: 192.168.205.12
+  mem: 2048
+  cpu: 2
+```
+
 ## How to check if the cluster is running?
 
 You can access to each Virtual Machine (node in K8s terminology) with the command:
