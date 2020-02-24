@@ -1,4 +1,4 @@
-# Kubernetes Cluster on Vbox
+# Kubernetes Cluster with Vagrant and Vbox
 
 This is a tool I use to play with K8s clusters on my MacOS using Vagrant and Virtual Box. 
 
