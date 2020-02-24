@@ -21,7 +21,7 @@ vagrant up
 
 ## How to change the configuration
 
-By default, the cluster is created with three nodes, one master (called ```k8s-head```) and two workers (called ```k8s-node-1``` and ```k8s-node-2```). You can change the number of servers, their names, and other configuration aspects editing the file servers.yaml. Here an example of the default file.
+By default, the cluster is created with three nodes, one master (called ```k8s-head```) and two workers (called ```k8s-node-1``` and ```k8s-node-2```). You can change the number of servers, their names, and other configuration aspects editing the file servers.yaml. Here an example of the default file. You must change it before the ```vagrant up``` command
 
 ```
 ---
