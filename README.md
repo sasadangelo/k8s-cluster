@@ -64,4 +64,14 @@ kubectl get nodes
 
 You should see all the nodes in Ready status.
 
+## Clean-up
+
+Execute the following command to remove the virtual machines created for the Kubernetes cluster.
+
+```
+vagrant destroy -f
+```
+
+You can destroy individual machines by vagrant destroy k8s-node-1 -f
+
 
