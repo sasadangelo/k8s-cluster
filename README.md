@@ -35,4 +35,6 @@ kubectl get nodes
 
 You should see all the nodes in Ready status.
 
+## Licensing
 
+[Apache License, Version 2.0](http://opensource.org/licenses/Apache-2.0).
