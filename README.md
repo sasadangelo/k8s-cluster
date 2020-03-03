@@ -64,6 +64,25 @@ kubectl get nodes
 
 You should see all the nodes in Ready status.
 
+## Control the cluster from your laptop
+
+Currently to manage the cluster you need to access to your Vagrant machines via ```vagrant ssh <machine name>``` to use kubectl commands. You can avoid this installing kubectl on your local machine and use it to control your cluster without ssh in the vagrant machines.
+
+To do that you need to install kubectl on your machine [following this guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/). For example, I have a Mac and in my case I only need to run the command:
+
+```
+brew install kubectl
+```
+
+Then you need to copy the Kubernetes credentials from your remote host:
+
+```
+cd ~
+scp -r vagrant@192.168.205.10:/home/vagrant/.kube .
+```
+
+Running the ```kubectl get pods```command, you should see the cluster nodes.
+
 ## Clean-up
 
 Execute the following command to remove the virtual machines created for the Kubernetes cluster.
