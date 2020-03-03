@@ -66,15 +66,9 @@ You should see all the nodes in Ready status.
 
 ## Control the cluster from your laptop
 
-Currently to manage the cluster you need to access to your Vagrant machines via ```vagrant ssh <machine name>``` to use kubectl commands. You can avoid this installing kubectl on your local machine and use it to control your cluster without ssh in the vagrant machines.
+Currently to manage the cluster you need to access your Vagrant machines via ssh to use kubectl commands. You can avoid this installing kubectl on your local machine and use it to control your cluster.
 
-To do that you need to install kubectl on your machine [following this guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/). For example, I have a Mac and in my case I only need to run the command:
-
-```
-brew install kubectl
-```
-
-Then you need to copy the Kubernetes credentials from your remote host:
+To do that you need to install kubectl on your machine [following this guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Then you need to copy the Kubernetes credentials from your remote host:
 
 ```
 cd ~
