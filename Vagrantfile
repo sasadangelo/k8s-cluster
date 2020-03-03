@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
             if opts["type"] == "master"
                 config.vm.provision "shell", path: "configure_master.sh", privileged: true
             else
-                config.vm.provision "shell", path: "configure_node.sh", privileged: true
+                config.vm.provision "shell", path: "configure_worker.sh", privileged: true
             end
         end
     end
