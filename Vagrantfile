@@ -21,10 +21,10 @@ Vagrant.configure("2") do |config|
 
             config.vm.provision "shell", path: "configure_box.sh", privileged: true
             if opts["type"] == "master"
-                if configuration["dashboard"] == "true"
+                config.vm.provision "shell", path: "configure_master.sh", privileged: true
+                if configuration["dashboard"] == true
                     config.vm.provision "shell", path: "dashboard/configure_dashboard.sh", privileged: true
                 end
-                config.vm.provision "shell", path: "configure_master.sh", privileged: true
             else
                 config.vm.provision "shell", path: "configure_worker.sh", privileged: true
             end
