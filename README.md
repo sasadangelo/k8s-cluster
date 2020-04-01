@@ -2,17 +2,19 @@
 
 This is a tool I use to play with K8s clusters on my MacOS using Vagrant and Virtual Box. 
 
-I started from the [following project](https://github.com/ecomm-integration-ballerina/kubernetes-cluster/) that I fixed to work with K8s 1.6 API. I reworked the code to have the setup on more than one script instead of on one big Vagrantfile hard to read and separate it from the configuration.
+## Features 
+
+I started from the [following project](https://github.com/ecomm-integration-ballerina/kubernetes-cluster/) that I fixed to: 
+ 
+1. have the setup on more than one script instead of on one big Vagrantfile hard to read and separate it from the configuration.
+2. support the K8s 1.6 APIs
+3. support for K8s 1.18 and Calico 3.8.8
+4. deploy K8s dashboard changing a configuration parameter at setup time. 
 
 ## Pre-requisites
 
  * **[Vagrant 2.1.4+](https://www.vagrantup.com)**
  * **[Virtualbox 5.2.18+](https://www.virtualbox.org)**
-
-## Features
-
- * Kubernetes 1.18
- * Calico 3.8.8
  
 ## Run the K8s Cluster
 
