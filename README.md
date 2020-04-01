@@ -82,7 +82,11 @@ cd ~
 scp -r vagrant@192.168.205.10:/home/vagrant/.kube .
 ```
 
-Running the ```kubectl get pods```command, you should see the cluster nodes.
+Running the ```kubectl get nodes```command, you should see the cluster nodes.
+
+**Note:** The second and next time you run this procedure you must:
+1. remove the 192.168.205.10 ssh entry in ~/.ssh/known_hosts
+2. remove the ~/.kube folder with the command ```rm -rf ~/.kube
 
 ## Clean-up
 
