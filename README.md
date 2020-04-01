@@ -17,7 +17,7 @@ I started from the [following project](https://github.com/ecomm-integration-ball
  
 ## Run the K8s Cluster
 
-Execute the following command to start a new Kubernetes cluster. Default configuration will start one master (called ```k8s-head```) and two workers (called ```k8s-node-1``` and ```k8s-node-2```).
+The following commands start a new Kubernetes cluster with default configuration. Default configuration will start one master (called ```k8s-master```) and two workers (called ```k8s-worker-1``` and ```k8s-worker-2```). If you need a different configuration read the **How to change the configuration** section before running the ```vagrant up```command.
 
 ```
 git clone https://github.com/sasadangelo/k8s-cluster
