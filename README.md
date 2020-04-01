@@ -8,6 +8,11 @@ I started from the [following project](https://github.com/ecomm-integration-ball
 
  * **[Vagrant 2.1.4+](https://www.vagrantup.com)**
  * **[Virtualbox 5.2.18+](https://www.virtualbox.org)**
+
+## Features
+
+ * Kubernetes 1.18
+ * Calico 3.8.8
  
 ## Run the K8s Cluster
 
