@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: docker-registry-account
-imagePullSecrets:
-- name: docker-registry-secret
