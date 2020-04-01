@@ -9,6 +9,9 @@ kubeadm init --apiserver-advertise-address=$IP_ADDR --apiserver-cert-extra-sans=
 sudo --user=vagrant mkdir -p /home/vagrant/.kube
 cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
 chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
+# copying credentials to root user
+mkdir -p ~/.kube
+cp -i /etc/kubernetes/admin.conf ~/.kube/config
 echo "====== Install Calico"
 # install Calico pod network addon
 export KUBECONFIG=/etc/kubernetes/admin.conf
