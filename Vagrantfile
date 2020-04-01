@@ -1,7 +1,7 @@
 require 'yaml'
 
 # Load settings from servers.yml file.
-configuration = YAML.load_file('servers.yaml')
+configuration = YAML.load_file('configuration.yaml')
 
 Vagrant.configure("2") do |config|
     configuration["servers"].each do |opts|
