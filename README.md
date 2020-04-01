@@ -91,15 +91,7 @@ Running the ```kubectl get nodes```command, you should see the cluster nodes.
 
 ## Kubernetes Dashboard
 
-You can deploy the K8s dashboard at the first setup simply setting to ```true``` the configuration parameter ```dashboard``` in the ```configuration.yaml``` file. 
-
-```
----
-dashboard: true
-...
-```
-
-If your cluster is already deployed you can run the script:
+You can deploy the K8s dashboard at the first setup simply setting to ```true``` the configuration parameter ```dashboard``` in the ```configuration.yaml``` file. If your cluster is already deployed you can run the script:
 
 ```
 dashboard/configure_dashboard.sh
