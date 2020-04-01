@@ -1,10 +1,10 @@
 require 'yaml'
 
 # Load settings from servers.yml file.
-servers = YAML.load_file('servers.yaml')
+configuration = YAML.load_file('servers.yaml')
 
 Vagrant.configure("2") do |config|
-    servers.each do |opts|
+    configuration["servers"].each do |opts|
         config.vm.define opts["name"] do |config|
             config.vm.box = opts["box"]
             config.vm.box_version = opts["box_version"]
@@ -21,6 +21,9 @@ Vagrant.configure("2") do |config|
 
             config.vm.provision "shell", path: "configure_box.sh", privileged: true
             if opts["type"] == "master"
+                if configuration["dashboard"] == "true"
+                    config.vm.provision "shell", path: "dashboard/configure_dashboard.sh", privileged: true
+                end
                 config.vm.provision "shell", path: "configure_master.sh", privileged: true
             else
                 config.vm.provision "shell", path: "configure_worker.sh", privileged: true

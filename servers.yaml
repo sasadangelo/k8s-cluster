@@ -1,4 +1,6 @@
 ---
+dashboard: false
+servers:
 - name: k8s-master
   type: master
   box: ubuntu/xenial64
