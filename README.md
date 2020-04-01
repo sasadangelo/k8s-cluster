@@ -89,6 +89,23 @@ Running the ```kubectl get nodes```command, you should see the cluster nodes.
 1. remove the 192.168.205.10 ssh entry in ~/.ssh/known_hosts
 2. remove the ~/.kube folder with the command ```rm -rf ~/.kube
 
+## Kubernetes Dashboard
+
+You can deploy the K8s dashboard at the first setup simply setting to ```true``` the configuration parameter ```dashboard``` in the ```configuration.yaml``` file. 
+
+```
+---
+dashboard: true
+...
+```
+
+If your cluster is already deployed you can run the script:
+
+```
+dashboard/configure_dashboard.sh
+```
+
+
 ## Clean-up
 
 Execute the following command to remove the virtual machines created for the Kubernetes cluster.
