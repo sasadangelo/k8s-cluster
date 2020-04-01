@@ -105,6 +105,19 @@ If your cluster is already deployed you can run the script:
 dashboard/configure_dashboard.sh
 ```
 
+To start access the dashboard get the access token with the command and copy it in the clipboard:
+
+```
+dashboard/get_token.sh
+```
+
+then start the proxy:
+
+```
+kubectl proxy
+```
+
+and access to the URL [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/) and select the radio button Token and paste the access token previously copied. 
 
 ## Clean-up
 
