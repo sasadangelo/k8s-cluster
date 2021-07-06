@@ -1,4 +1,7 @@
-echo "==== Configure Master"
+MASTER_NODE_NAME=$1
+MASTER_NODE_SCHEDULABLE=$2
+
+echo "==== Configure Master: MASTER_NODE_NAME=$MASTER_NODE_NAME MASTER_NODE_SCHEDULABLE=$MASTER_NODE_SCHEDULABLE"
 # ip of this box
 IP_ADDR=`ifconfig enp0s8 | grep Mask | awk '{print $2}'| cut -f2 -d:`
 # install k8s master
@@ -24,3 +27,8 @@ chmod +x /etc/kubeadm_join_cmd.sh
 echo "====== Configure SSH"
 sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
 service sshd restart
+echo "====== Make master node schedulable"
+if [ "$MASTER_NODE_SCHEDULABLE" == "true" ]
+then
+    kubectl taint nodes $MASTER_NODE_NAME node-role.kubernetes.io/master-
+fi

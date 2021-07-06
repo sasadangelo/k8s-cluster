@@ -3,6 +3,10 @@ require 'yaml'
 # Load settings from servers.yml file.
 configuration = YAML.load_file('configuration.yaml')
 
+master_ip=""
+master_node_name=""
+master_node_schedulable=configuration["master_node_schedulable"]
+
 Vagrant.configure("2") do |config|
     configuration["servers"].each do |opts|
         config.vm.define opts["name"] do |config|
@@ -21,12 +25,14 @@ Vagrant.configure("2") do |config|
 
             config.vm.provision "shell", path: "configure_box.sh", privileged: true
             if opts["type"] == "master"
-                config.vm.provision "shell", path: "configure_master.sh", privileged: true
+                master_node_name=opts["name"]
+                master_ip=opts["eth1"]
+                config.vm.provision "shell", path: "configure_master.sh", args: "#{master_node_name} #{master_node_schedulable}", privileged: true
                 if configuration["dashboard"] == true
                     config.vm.provision "shell", path: "dashboard/configure_dashboard.sh", privileged: true
                 end
             else
-                config.vm.provision "shell", path: "configure_worker.sh", privileged: true
+                config.vm.provision "shell", path: "configure_worker.sh", args: master_ip, privileged: true
             end
         end
     end

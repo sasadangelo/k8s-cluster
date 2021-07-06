@@ -1,6 +1,13 @@
 ---
 dashboard: false
+# By default, Pod cannot be scheduled on the master node.
+# However, if you set the master_node_schedulable variable
+# to true, Kubernetes will deploy Pod even on master node.
+# This functionality could be useful to reduce the number of VM
+# to create.
+master_node_schedulable: false
 servers:
+# Make sure the master node is always the first in the list.
 - name: k8s-master
   type: master
   box: ubuntu/xenial64
