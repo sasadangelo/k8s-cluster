@@ -1,5 +1,6 @@
 MASTER_NODE_NAME=$1
 MASTER_NODE_SCHEDULABLE=$2
+CALICO_VERSION="v3.20"
 
 echo "==== Configure Master: MASTER_NODE_NAME=$MASTER_NODE_NAME MASTER_NODE_SCHEDULABLE=$MASTER_NODE_SCHEDULABLE"
 # ip of this box
@@ -18,8 +19,9 @@ cp -i /etc/kubernetes/admin.conf ~/.kube/config
 echo "====== Install Calico"
 # install Calico pod network addon
 export KUBECONFIG=/etc/kubernetes/admin.conf
-kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/rbac-kdd.yaml
-kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/calico.yaml
+#kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/rbac-kdd.yaml
+#kubectl apply -f https://raw.githubusercontent.com/sasadangelo/k8s-cluster/master/calico/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/archive/$CALICO_VERSION/manifests/calico.yaml
 echo "====== Generate join script"
 kubeadm token create --print-join-command 2>/dev/null | tee -a /etc/kubeadm_join_cmd.sh
 chmod +x /etc/kubeadm_join_cmd.sh

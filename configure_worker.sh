@@ -1,6 +1,7 @@
 MASTER_IP=$1
 
 echo "==== Configure Worker. Master IP: $MASTER_IP"
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y sshpass
 echo "====== Copy join script from the master"
