@@ -1,5 +1,5 @@
 # install docker v17.03
-# reason for not using docker provision is that it always installs latest 
+# reason for not using docker provision is that it always installs latest
 # version of the docker, but kubeadm requires 17.03 or older
 echo "==== Configure Box"
 echo "====== Install Docker Engine 17.03"
@@ -31,3 +31,8 @@ IP_ADDR=`ifconfig enp0s8 | grep Mask | awk '{print $2}'| cut -f2 -d:`
 echo "====== Configure kubelet"
 echo "KUBELET_EXTRA_ARGS=--node-ip=$IP_ADDR" | tee -a /etc/default/kubelet
 systemctl restart kubelet
+echo "====== Install and configure ntp"
+apt-get install -y ntp
+sed -i "s/#disable auth/disable auth/g" /etc/ntp.conf
+sed -i "s/#broadcastclient/broadcastclient/g" /etc/ntp.conf
+service ntp restart
