@@ -8,7 +8,7 @@ apt-get update
 apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
-apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+apt-get update && apt-get install -y containerd docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
 # Kubelet uses systemd cfgroup while docker cgroupfs. This disalignment doesn't allow
 # to Kubelet to start. This fix the problem.
 echo '{"exec-opts": ["native.cgroupdriver=systemd"]}' >> /etc/docker/daemon.json
@@ -41,3 +41,8 @@ apt-get install -y ntp
 sed -i "s/#disable auth/disable auth/g" /etc/ntp.conf
 sed -i "s/#broadcastclient/broadcastclient/g" /etc/ntp.conf
 service ntp restart
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+locale-gen en_US.UTF-8
+/lib/systemd/systemd-sysv-install enable ntp
