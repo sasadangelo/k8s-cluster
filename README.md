@@ -35,23 +35,23 @@ dashboard: false
 servers:
 - name: k8s-master
   type: master
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
-  eth1: 192.168.205.10
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
+  eth1: 192.168.56.4
   mem: 2048
   cpu: 2
 - name: k8s-worker-1
   type: node
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
-  eth1: 192.168.205.11
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
+  eth1: 192.168.56.5
   mem: 2048
   cpu: 2
 - name: k8s-worker-2
   type: node
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
-  eth1: 192.168.205.12
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
+  eth1: 192.168.56.3
   mem: 2048
   cpu: 2
 ```
@@ -80,13 +80,13 @@ To do that you need to install kubectl on your machine [following this guide](ht
 
 ```
 cd ~
-scp -r vagrant@192.168.205.10:/home/vagrant/.kube .
+scp -r vagrant@192.168.56.4:/home/vagrant/.kube .
 ```
 
 Running the ```kubectl get nodes```command, you should see the cluster nodes.
 
 **Note:** The second and next time you run this procedure you must:
-1. remove the 192.168.205.10 ssh entry in ~/.ssh/known_hosts
+1. remove the 192.168.56.4 ssh entry in ~/.ssh/known_hosts
 2. remove the ~/.kube folder with the command ```rm -rf ~/.kube```
 
 ## Kubernetes Dashboard
