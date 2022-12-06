@@ -10,22 +10,22 @@ servers:
 # Make sure the master node is always the first in the list.
 - name: k8s-master
   type: master
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
   eth1: 192.168.56.4
   mem: 2048
   cpu: 2
 - name: k8s-worker-1
   type: worker
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
   eth1: 192.168.56.5
   mem: 2048
   cpu: 2
 - name: k8s-worker-2
   type: worker
-  box: ubuntu/xenial64
-  box_version: 20180831.0.0
+  box: ubuntu/bionic64
+  box_version: 20190411.0.0
   eth1: 192.168.56.6
   mem: 2048
   cpu: 2

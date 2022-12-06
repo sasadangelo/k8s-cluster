@@ -1,14 +1,12 @@
-# install docker v17.03
+# install docker latest
 # reason for not using docker provision is that it always installs latest
 # version of the docker, but kubeadm requires 17.03 or older
 echo "==== Configure Box"
-echo "====== Install Docker Engine 17.03"
+echo "====== Install Docker Engine latest"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-add-apt-repository "deb https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
-apt-get update && apt-get install -y containerd docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+apt-get install -y docker.io
 # Kubelet uses systemd cfgroup while docker cgroupfs. This disalignment doesn't allow
 # to Kubelet to start. This fix the problem.
 echo '{"exec-opts": ["native.cgroupdriver=systemd"]}' >> /etc/docker/daemon.json
@@ -30,7 +28,7 @@ swapoff -a
 # keep swap off after reboot
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 # ip of this box
-IP_ADDR=`ifconfig enp0s8 | grep Mask | awk '{print $2}'| cut -f2 -d:`
+IP_ADDR=`ifconfig enp0s8 | grep inet | awk '{print $2}'| cut -f2 -d:`
 # set node-ip
 #sudo sed -i "/^[^#]*KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IP_ADDR" /etc/default/kubelet
 echo "====== Configure kubelet"

@@ -5,7 +5,7 @@ CALICO_VERSION="v3.24.5"
 
 echo "==== Configure Master: MASTER_NODE_NAME=$MASTER_NODE_NAME MASTER_NODE_SCHEDULABLE=$MASTER_NODE_SCHEDULABLE"
 # ip of this box
-IP_ADDR=`ifconfig enp0s8 | grep Mask | awk '{print $2}'| cut -f2 -d:`
+IP_ADDR=`ifconfig enp0s8 | grep inet | awk '{print $2}'| cut -f2 -d:`
 # install k8s master
 HOST_NAME=$(hostname -s)
 echo "====== Initialize the K8s Cluster"
