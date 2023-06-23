@@ -37,21 +37,21 @@ servers:
   type: master
   box: ubuntu/xenial64
   box_version: 20180831.0.0
-  eth1: 192.168.205.10
+  eth1: 192.168.56.4
   mem: 2048
   cpu: 2
 - name: k8s-worker-1
   type: node
   box: ubuntu/xenial64
   box_version: 20180831.0.0
-  eth1: 192.168.205.11
+  eth1: 192.168.56.5
   mem: 2048
   cpu: 2
 - name: k8s-worker-2
   type: node
   box: ubuntu/xenial64
   box_version: 20180831.0.0
-  eth1: 192.168.205.12
+  eth1: 192.168.56.6
   mem: 2048
   cpu: 2
 ```
@@ -80,7 +80,7 @@ To do that you need to install kubectl on your machine [following this guide](ht
 
 ```
 cd ~
-scp -r vagrant@192.168.205.10:/home/vagrant/.kube .
+scp -r vagrant@192.168.56.4:/home/vagrant/.kube .
 ```
 
 Running the ```kubectl get nodes```command, you should see the cluster nodes.
